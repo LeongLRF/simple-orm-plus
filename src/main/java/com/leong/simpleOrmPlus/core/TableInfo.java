@@ -31,7 +31,7 @@ public class TableInfo {
         String tableName = ReflectionHelper.getTableName(cls);
         tableInfo.setTableName(tableName);
         tableInfo.setCls(cls);
-        Field[] fields = cls.getFields();
+        Field[] fields = cls.getDeclaredFields();
         fillTableInfo(tableInfo, fields);
         return tableInfo;
     }
@@ -49,7 +49,7 @@ public class TableInfo {
                 Column column = Column.createNormalColumn(field);
                 columns.put(column.getName(), column);
             }
-            tableInfo.setColumns(columns);
         });
+        tableInfo.setColumns(columns);
     }
 }

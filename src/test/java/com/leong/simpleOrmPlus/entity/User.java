@@ -9,6 +9,9 @@ import com.leong.simpleOrmPlus.core.support.IdType;
 public class User {
 
     @TableId(idType = IdType.AUTO)
-    long ind;
-    
+    long id;
+
+    @Column("userName")
+    String userName;
+
 }
